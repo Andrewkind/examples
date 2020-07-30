@@ -1,12 +1,33 @@
 <html>
-    <body>
-        <meta charset="UTF-8">
-    </body>
-    <body>
-        hello world
-    </body>
+
+<body>
+    <meta charset="UTF-8">
+</body>
+
+<body>
+    hello world
+</body>
+
 </html>
 
 <script>
-    console.log("test");
+
+    let key = "actual_key_name";
+    let value = "some_value";
+    var goodObject = {}; // Original way to create an object
+    goodObject[key] = value; // Notice this was a two step process because I could not declare the name of the key in the previous step.
+    // The bad object I Create below will illustrate this
+
+
+    var newObject = { [key]: value } //  Computed property name. Note: the [] do not mean array. it's telling JS to use the computed string value, not just the word 'key'
+    var badObject = { key: value }; // notice the lack of []. JavaScript will think you're naming a key 'key' instead of the associated string value
+
+
+    console.log(goodObject); //  Object { actual_key_name: "some_value" }
+    console.log(newObject);  //  Object { actual_key_name: "some_value" }
+    console.log(badObject);  //  Object { key: "1" }   *notice we do not have the key name... just a word key? We are missing the key name :( *
+
+
+
+
 </script>
